@@ -96,12 +96,17 @@ class NotificationController extends Controller
     {
         if ($notification->type === 'adopcion' && $notification->related_id) {
             return route('admin.adopciones.show', $notification->related_id);
-        } elseif ($notification->type === 'donacion' && $notification->related_id) {
-            // Para donaciones económicas
-            return route('admin.donaciones.show', $notification->related_id);
         } elseif ($notification->type === 'donacion_animal' && $notification->related_id) {
             // Para donaciones de animales
             return route('admin.donaciones-animales.show', $notification->related_id);
+        } elseif ($notification->type === 'donacion' && $notification->related_id) {
+            // Verificar si es donación económica o de animal
+            // Si el mensaje contiene "animal", es donación de animal
+            if (stripos($notification->message, 'animal') !== false) {
+                return route('admin.donaciones-animales.show', $notification->related_id);
+            }
+            // Si no, es donación económica
+            return route('admin.donaciones.show', $notification->related_id);
         }
         
         return route('notifications.index');
