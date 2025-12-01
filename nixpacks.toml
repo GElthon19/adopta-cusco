@@ -2,11 +2,20 @@
 nixPkgs = ['php82', 'php82Packages.composer', 'nodejs_22']
 
 [phases.install]
-cmds = ['composer install --no-dev --optimize-autoloader', 'npm install --frozen-lockfile']
+cmds = [
+    'composer install --no-dev --optimize-autoloader',
+    'npm ci || npm install',
+    'echo "Node version:" && node --version',
+    'echo "NPM version:" && npm --version'
+]
 
 [phases.build]
 cmds = [
+    'echo "=== Building assets with Vite ==="',
     'npm run build',
+    'echo "=== Verifying build output ==="',
+    'ls -la public/build/ || echo "WARNING: Build directory not found"',
+    'test -f public/build/manifest.json && echo "✓ Manifest found" || echo "✗ Manifest NOT found"',
     'php artisan config:cache',
     'php artisan route:cache',
     'php artisan view:cache'

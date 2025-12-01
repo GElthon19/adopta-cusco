@@ -11,7 +11,7 @@ export default defineConfig({
         tailwindcss(),
     ],
     build: {
-        manifest: true,
+        manifest: 'manifest.json', // Laravel espera manifest.json en la raíz de build/
         outDir: 'public/build',
         rollupOptions: {
             output: {
