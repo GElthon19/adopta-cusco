@@ -156,7 +156,7 @@ use Illuminate\Support\Str;
                                         <div class="info-minima">
                                             <div class="nombre-animal">{{ $animal->nombre }}</div>
                                             <small class="text-muted">{{ $animal->edad ?? '?' }} años • 
-                                                @if($animal->estado === 'En Proceso')
+                                                @if($animal->estado === 'En proceso')
                                                     <span class="badge bg-warning text-dark">
                                                         <i class="bi bi-hourglass-split"></i> En Proceso de Adopción
                                                     </span>
@@ -172,7 +172,7 @@ use Illuminate\Support\Str;
                                             <a href="{{ route('solicitudes_adopcion.create', ['animal_id' => $animal->id_animales]) }}" class="boton-adoptar-mini">
                                                 <i class="bi bi-heart-fill"></i> Adoptar
                                             </a>
-                                            @elseif($animal->estado === 'En Proceso')
+                                            @elseif($animal->estado === 'En proceso')
                                             <button class="boton-adoptar-mini" disabled style="opacity: 0.6; cursor: not-allowed;">
                                                 <i class="bi bi-hourglass-split"></i> En Evaluación
                                             </button>

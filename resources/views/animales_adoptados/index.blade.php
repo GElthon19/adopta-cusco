@@ -153,7 +153,7 @@
                 Total de animales: {{ \App\Models\Animal::count() }}<br>
                 Animales con estado "Adoptado": {{ \App\Models\Animal::where('estado', 'Adoptado')->count() }}<br>
                 Animales disponibles: {{ \App\Models\Animal::where('estado', 'Disponible')->count() }}<br>
-                Animales en proceso: {{ \App\Models\Animal::where('estado', 'En Proceso')->count() }}
+                Animales en proceso: {{ \App\Models\Animal::where('estado', 'En proceso')->count() }}
             </p>
         </div>
     </div>

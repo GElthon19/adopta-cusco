@@ -41,10 +41,10 @@ class SolicitudAdopcionController extends Controller
             'motivo'          => ['nullable', 'string'],
         ]);
 
-        // Cambiar estado del animal a "En Proceso"
+        // Cambiar estado del animal a "En proceso"
         $animal = Animal::where('id_animales', $data['id_animal'])->first();
         if ($animal && $animal->estado === 'Disponible') {
-            $animal->update(['estado' => 'En Proceso']);
+            $animal->update(['estado' => 'En proceso']);
         }
 
         // Crear solicitud de adopción online

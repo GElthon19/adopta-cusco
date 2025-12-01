@@ -23,7 +23,7 @@ class DashboardController extends Controller
             'animales_adoptados' => Animal::where('estado', 'Adoptado')
                 ->whereBetween('updated_at', [$fechaInicio, $fechaFin . ' 23:59:59'])->count(),
             'animales_disponibles' => Animal::where('estado', 'Disponible')->count(),
-            'animales_en_proceso' => Animal::where('estado', 'En Proceso')->count(),
+            'animales_en_proceso' => Animal::where('estado', 'En proceso')->count(),
             'total_adopciones' => Adopcion::whereBetween('created_at', [$fechaInicio, $fechaFin . ' 23:59:59'])->count(),
             'adopciones_pendientes' => Adopcion::where('estado', 'Pendiente')
                 ->whereBetween('created_at', [$fechaInicio, $fechaFin . ' 23:59:59'])->count(),

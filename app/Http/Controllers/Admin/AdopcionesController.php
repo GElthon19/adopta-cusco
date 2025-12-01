@@ -156,7 +156,7 @@ class AdopcionesController extends Controller
 
         // Regresar el animal a estado "Disponible"
         $animal = Animal::where('id_animales', $solicitud->animal_id)->first();
-        if ($animal && $animal->estado === 'En Proceso') {
+        if ($animal && $animal->estado === 'En proceso') {
             $animal->update(['estado' => 'Disponible']);
         }
 
