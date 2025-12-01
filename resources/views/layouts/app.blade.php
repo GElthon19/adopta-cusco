@@ -202,9 +202,14 @@
                         @endif
                     @else
                         <!-- NAVBAR NO AUTENTICADO -->
-                        <li class="nav-item">
-                            <a class="btn btn-primary" href="{{ route('login') }}">
+                        <li class="nav-item me-2">
+                            <a class="btn btn-outline-light" href="{{ route('login') }}">
                                 <i class="bi bi-box-arrow-in-right"></i> Iniciar Sesión
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-light" href="{{ route('login') }}">
+                                <i class="bi bi-person-plus"></i> Crear Cuenta
                             </a>
                         </li>
                     @endauth

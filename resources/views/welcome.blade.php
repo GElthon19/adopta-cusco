@@ -276,9 +276,14 @@
 
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item me-2">
+                        <a class="btn btn-outline-light" href="{{ route('login') }}" style="font-weight: 600; padding: 10px 30px; border-radius: 50px; border: 2px solid white;">
+                            <i class="bi bi-box-arrow-in-right"></i> Iniciar Sesión
+                        </a>
+                    </li>
                     <li class="nav-item">
-                        <a class="btn btn-primary" href="{{ route('login') }}" style="background: white; color: #2C7A7B; font-weight: 600; padding: 10px 30px; border-radius: 50px;">
-                            <i class="bi bi-box-arrow-in-right"></i> Iniciar Sesión / Registrar
+                        <a class="btn btn-light" href="{{ route('login') }}" style="background: white; color: #2C7A7B; font-weight: 600; padding: 10px 30px; border-radius: 50px;">
+                            <i class="bi bi-person-plus"></i> Crear Cuenta
                         </a>
                     </li>
                 </ul>
