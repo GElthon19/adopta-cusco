@@ -38,7 +38,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarContent">
-                <ul class="navbar-nav mx-auto align-items-center">
+                <ul class="navbar-nav ms-auto align-items-center" style="margin-left: 50px;">
                     @auth
                         @if(Auth::user()->isAdmin())
                             <!-- NAVBAR ADMIN -->
