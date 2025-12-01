@@ -72,7 +72,7 @@ class NotificationHelper
         $tipo = $solicitud->tipo_animal;
         
         self::notifyAdmins(
-            'donacion',
+            'donacion_animal',
             "Nueva solicitud de donación de animal ({$tipo}) por {$donante}",
             $solicitud->id
         );

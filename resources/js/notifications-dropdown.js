@@ -49,12 +49,27 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        container.innerHTML = notifications.map(notification => `
+        container.innerHTML = notifications.map(notification => {
+            let badgeClass = 'bg-info';
+            let badgeText = 'Donación';
+            
+            if (notification.type === 'adopcion') {
+                badgeClass = 'bg-success';
+                badgeText = 'Adopción';
+            } else if (notification.type === 'donacion_animal') {
+                badgeClass = 'bg-warning';
+                badgeText = 'Donación Animal';
+            } else if (notification.type === 'donacion') {
+                badgeClass = 'bg-info';
+                badgeText = 'Donación Económica';
+            }
+            
+            return `
             <div class="notification-dropdown-item ${!notification.is_read ? 'unread' : ''}" data-id="${notification.id}">
                 <div class="d-flex justify-content-between align-items-start">
                     <div class="flex-grow-1">
-                        <span class="badge ${notification.type === 'adopcion' ? 'bg-success' : 'bg-info'} mb-2">
-                            ${notification.type === 'adopcion' ? 'Adopción' : 'Donación'}
+                        <span class="badge ${badgeClass} mb-2">
+                            ${badgeText}
                         </span>
                         <div class="notification-message">${notification.message}</div>
                         <div class="notification-time">
@@ -80,7 +95,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 ` : ''}
             </div>
-        `).join('');
+            `;
+        }).join('');
 
         // Agregar event listeners a los botones
         attachNotificationActions();
