@@ -37,7 +37,10 @@ class GoogleController extends Controller
             $user = User::where('email', $googleUser->getEmail())->first();
 
             if (!$user) {
-                // Crear nuevo usuario con rol 'user' (NO admin)
+                // Determinar rol: admin si es alexcutipajara@gmail.com, sino user
+                $role = ($googleUser->getEmail() === 'alexcutipajara@gmail.com') ? 'admin' : 'user';
+                
+                // Crear nuevo usuario
                 $user = User::create([
                     'name' => $googleUser->getName(),
                     'email' => $googleUser->getEmail(),
@@ -45,13 +48,16 @@ class GoogleController extends Controller
                     'avatar' => $googleUser->getAvatar(),
                     'password' => bcrypt(uniqid()),
                     'email_verified_at' => now(),
-                    'role' => 'user' // Los usuarios de Google SIEMPRE son usuarios normales
+                    'role' => $role
                 ]);
             } else {
-                // Actualizar información de Google del usuario existente
+                // Actualizar información de Google y verificar si debe ser admin
+                $role = ($googleUser->getEmail() === 'alexcutipajara@gmail.com') ? 'admin' : $user->role;
+                
                 $user->update([
                     'google_id' => $googleUser->getId(),
                     'avatar' => $googleUser->getAvatar(),
+                    'role' => $role
                 ]);
             }
 
