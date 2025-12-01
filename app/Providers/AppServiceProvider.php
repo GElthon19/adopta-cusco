@@ -19,8 +19,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Deshabilitar Vite en producción si el manifest no existe
+        // FORZAR HTTPS en producción (Railway/Render/etc)
         if (app()->environment('production')) {
+            \Illuminate\Support\Facades\URL::forceScheme('https');
+            
             $manifestPath = public_path('build/manifest.json');
             
             if (!file_exists($manifestPath)) {
