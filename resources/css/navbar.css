@@ -162,8 +162,37 @@
 }
 
 .navbar-custom {
-    position: relative;
+    position: relative !important;
     z-index: 1020 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.navbar-custom .container-fluid {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.navbar-custom .navbar-collapse {
+    visibility: visible !important;
+}
+
+.navbar-custom .navbar-collapse.collapse:not(.show) {
+    display: none !important;
+}
+
+.navbar-custom .navbar-collapse.collapse.show {
+    display: block !important;
+}
+
+@media (min-width: 992px) {
+    .navbar-custom .navbar-collapse {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
 }
 
 .navbar-custom .dropdown-menu.show {

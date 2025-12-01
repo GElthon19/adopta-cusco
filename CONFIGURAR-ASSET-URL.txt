@@ -1,0 +1,30 @@
+# ========================================
+# CONFIGURACIÓN RAILWAY - VARIABLES DE ENTORNO
+# ========================================
+
+En Railway → Tu Proyecto → Variables → Agregar ESTAS variables:
+
+## ✅ VARIABLE CRÍTICA PARA HTTPS:
+ASSET_URL=https://web-production-9b482.up.railway.app
+
+## ✅ VERIFICAR QUE EXISTAN:
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=https://web-production-9b482.up.railway.app
+
+## DESPUÉS DE AGREGAR ASSET_URL:
+1. Railway se redesplegará automáticamente
+2. Espera 2-3 minutos
+3. Abre la página con Ctrl+Shift+R (limpiar caché)
+4. Los errores de "Mixed Content" desaparecerán
+5. Los estilos y animales se mostrarán correctamente
+
+## ¿POR QUÉ ASSET_URL?
+Sin esta variable, Laravel genera URLs como:
+❌ http://web-production-9b482.up.railway.app/build/assets/app-XXX.css
+
+Con ASSET_URL, Laravel genera:
+✅ https://web-production-9b482.up.railway.app/build/assets/app-XXX.css
+
+Y con el código que acabamos de agregar (URL::forceScheme('https')), 
+TODAS las URLs internas también usarán HTTPS.
