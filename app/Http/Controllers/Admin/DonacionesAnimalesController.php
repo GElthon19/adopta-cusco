@@ -50,7 +50,7 @@ class DonacionesAnimalesController extends Controller
     public function storePresencial(Request $request)
     {
         $data = $request->validate([
-            'email_donante'     => ['required', 'email', 'ends_with:gmail.com,@googlemail.com,@outlook.com,@hotmail.com,@yahoo.com'],
+            'email_donante'     => ['required', 'email'],
             'nombre_donante'    => ['required', 'string', 'max:150'],
             'telefono_donante'  => ['nullable', 'string', 'max:20'],
             'direccion_donante' => ['nullable', 'string'],
@@ -68,6 +68,9 @@ class DonacionesAnimalesController extends Controller
             'animales.*.descripcion'    => ['nullable', 'string'],
             'animales.*.foto'           => ['nullable', 'image', 'max:2048'],
         ]);
+
+        // Reindexar array de animales para evitar índices faltantes
+        $data['animales'] = array_values($data['animales']);
 
         // Buscar o crear usuario temporal
         $usuario = User::firstOrCreate(

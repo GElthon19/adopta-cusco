@@ -47,9 +47,8 @@
                                 <input type="text" name="nombre_donante" class="form-control" required placeholder="María García" value="{{ old('nombre_donante') }}">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Email (Gmail, Outlook, etc.) <span class="text-danger">*</span></label>
+                                <label class="form-label">Email <span class="text-danger">*</span></label>
                                 <input type="email" name="email_donante" class="form-control" required placeholder="ejemplo@gmail.com" value="{{ old('email_donante') }}">
-                                <small class="form-text text-muted">Debe ser un email válido de Google, Outlook, Yahoo, etc.</small>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Teléfono</label>

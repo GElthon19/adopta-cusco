@@ -47,7 +47,7 @@ class DonacionesController extends Controller
     {
         $data = $request->validate([
             'tipo_donacion'     => ['required', 'in:Efectivo,Alimentos,Medicinas,Otros'],
-            'email_donante'     => ['nullable', 'email', 'ends_with:gmail.com,@googlemail.com,@outlook.com,@hotmail.com,@yahoo.com'],
+            'email_donante'     => ['nullable', 'email'],
             'nombre_donante'    => ['required', 'string', 'max:150'],
             'telefono'          => ['nullable', 'string', 'max:20'],
             'monto'             => ['required_if:tipo_donacion,Efectivo', 'nullable', 'numeric', 'min:0'],

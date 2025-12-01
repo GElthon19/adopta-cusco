@@ -51,7 +51,7 @@ class AdopcionesController extends Controller
     public function storePresencial(Request $request)
     {
         $data = $request->validate([
-            'email_usuario'   => ['required', 'email', 'ends_with:gmail.com,@googlemail.com,@outlook.com,@hotmail.com,@yahoo.com'],
+            'email_usuario'   => ['required', 'email'],
             'nombre_usuario'  => ['required', 'string', 'max:150'],
             'id_animal'       => ['required', 'integer', 'exists:animales,id_animales'],
             'telefono'        => ['nullable', 'string', 'max:20'],
