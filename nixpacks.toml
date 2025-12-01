@@ -22,4 +22,4 @@ cmds = [
 ]
 
 [start]
-cmd = 'php artisan migrate --force && echo "=== EJECUTANDO SEEDER DE ANIMALES ===" && php artisan db:seed --class=AnimalesSeeder && echo "=== EJECUTANDO SEEDER DE ADMIN ===" && php artisan db:seed --class=AdminUserSeeder && php artisan optimize && php artisan storage:link && php artisan serve --host=0.0.0.0 --port=$PORT'
+cmd = 'php artisan migrate --force && echo "=== EJECUTANDO SEEDER DE ANIMALES ===" && php artisan db:seed --class=AnimalesSeeder && echo "=== EJECUTANDO SEEDER DE ADMIN ===" && php artisan db:seed --class=AdminUserSeeder || echo "ERROR EN ADMIN SEEDER" && php artisan optimize && php artisan storage:link && php artisan serve --host=0.0.0.0 --port=$PORT'
