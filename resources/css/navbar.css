@@ -204,3 +204,19 @@
     z-index: 1020 !important;
 }
 
+/* FORZAR ALINEACIÓN A LA DERECHA */
+.navbar-custom .navbar-collapse {
+    justify-content: flex-end !important;
+}
+
+.navbar-custom .navbar-nav {
+    margin-left: auto !important;
+}
+
+@media (min-width: 992px) {
+    .navbar-custom .navbar-collapse {
+        display: flex !important;
+        justify-content: flex-end !important;
+    }
+}
+
