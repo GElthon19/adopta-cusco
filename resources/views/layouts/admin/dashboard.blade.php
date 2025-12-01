@@ -122,25 +122,96 @@
             color: white;
         }
 
+        /* Botón toggle para móviles */
+        .sidebar-toggle {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1100;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
         @media (max-width: 768px) {
+            .sidebar-toggle {
+                display: block;
+            }
+
             .sidebar {
-                width: 100%;
-                position: relative;
-                min-height: auto;
+                width: 280px;
+                position: fixed;
+                left: -280px;
+                transition: left 0.3s ease;
+                z-index: 1050;
+                top: 0;
+                height: 100vh;
+                overflow-y: auto;
+            }
+
+            .sidebar.show {
+                left: 0;
             }
             
             .main-content {
                 margin-left: 0;
+                padding: 80px 15px 30px;
+            }
+
+            .welcome-header h1 {
+                font-size: 1.8em;
+            }
+
+            .info-panel {
+                padding: 15px;
+            }
+
+            /* Overlay oscuro */
+            .sidebar-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+                z-index: 1040;
+            }
+
+            .sidebar-overlay.show {
+                display: block;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .welcome-header h1 {
+                font-size: 1.5em;
+            }
+
+            .welcome-header {
+                padding: 20px;
             }
         }
     </style>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
+    <!-- Botón toggle para móviles -->
+    <button class="sidebar-toggle" id="sidebarToggle">
+        <i class="bi bi-list"></i>
+    </button>
+
+    <!-- Overlay oscuro para móviles -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
-            <div class="col-md-3 col-lg-2 sidebar">
+            <div class="col-md-3 col-lg-2 sidebar" id="sidebar">
                 <div class="p-3 text-center">
                     <h4><i class="bi bi-hearts"></i> Adopta Cusco</h4>
                     <p class="text-muted small">Panel Administrativo</p>
@@ -659,5 +730,33 @@
     });
     </script>
     @endif
+
+    <!-- Script para toggle del sidebar en móviles -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+
+            function toggleSidebar() {
+                sidebar.classList.toggle('show');
+                overlay.classList.toggle('show');
+            }
+
+            sidebarToggle.addEventListener('click', toggleSidebar);
+            overlay.addEventListener('click', toggleSidebar);
+
+            // Cerrar sidebar al hacer clic en un enlace (móviles)
+            if (window.innerWidth <= 768) {
+                const navLinks = sidebar.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        sidebar.classList.remove('show');
+                        overlay.classList.remove('show');
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
