@@ -6,10 +6,6 @@ use Illuminate\Support\Str;
 
 @section('title', 'Inicio')
 
-@push('css')
-<link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
-@endpush
-
 @section('content')
 
 @if(session('success'))

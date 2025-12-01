@@ -1,0 +1,136 @@
+/* Estilos para el dropdown de notificaciones */
+.notifications-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 380px;
+    max-height: 500px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    z-index: 1050;
+    display: none;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.notifications-dropdown.show {
+    display: block;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.notifications-dropdown-header {
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #69D1C4, #4EC3B4);
+    color: white;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notifications-dropdown-body {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.notification-dropdown-item {
+    padding: 15px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s;
+}
+
+.notification-dropdown-item:hover {
+    background: #f8f9fa;
+}
+
+.notification-dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.notification-dropdown-item.unread {
+    background: #e8f8f6;
+    border-left: 4px solid #69D1C4;
+}
+
+.notification-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.notification-actions .btn {
+    font-size: 0.75rem;
+    padding: 4px 12px;
+}
+
+.notification-time {
+    font-size: 0.75rem;
+    color: #6c757d;
+}
+
+.notification-message {
+    font-size: 0.875rem;
+    margin: 5px 0;
+    color: #333;
+}
+
+.notifications-dropdown-footer {
+    padding: 10px 20px;
+    text-align: center;
+    background: #f8f9fa;
+    border-top: 1px solid #e0e0e0;
+}
+
+.notifications-dropdown-footer a {
+    color: #69D1C4;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.notifications-dropdown-footer a:hover {
+    text-decoration: underline;
+}
+
+.notification-empty {
+    padding: 40px 20px;
+    text-align: center;
+    color: #6c757d;
+}
+
+.notification-empty i {
+    font-size: 3rem;
+    opacity: 0.3;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Scroll personalizado */
+.notifications-dropdown-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.notifications-dropdown-body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.notifications-dropdown-body::-webkit-scrollbar-thumb {
+    background: #69D1C4;
+    border-radius: 3px;
+}
+
+.notifications-dropdown-body::-webkit-scrollbar-thumb:hover {
+    background: #4EC3B4;
+}

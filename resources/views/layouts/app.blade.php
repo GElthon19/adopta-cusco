@@ -12,10 +12,8 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
-    <!-- TUS ESTILOS PERSONALIZADOS -->
-    <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/notifications-dropdown.css') }}">
+    <!-- Vite Assets (incluye todos los CSS personalizados) -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     
     <!-- CSRF Token para peticiones AJAX -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

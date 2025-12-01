@@ -6,10 +6,6 @@ use Illuminate\Support\Str;
 
 @section('title', 'Inicio - Administrador')
 
-@push('css')
-<link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
-@endpush
-
 @section('content')
 
 {{-- CONTENEDOR PRINCIPAL CON FONDO --}}

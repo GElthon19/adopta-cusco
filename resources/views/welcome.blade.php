@@ -6,7 +6,7 @@
     <title>Cusco Adopta - Dale un hogar, gana un amigo para siempre</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         /* Patitas cayendo en navbar y hero */
         #patitas-navbar, #patitas-hero {

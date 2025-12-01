@@ -1,5 +1,10 @@
 @import 'tailwindcss';
 
+/* Estilos personalizados */
+@import './estilos.css';
+@import './navbar.css';
+@import './notifications-dropdown.css';
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';

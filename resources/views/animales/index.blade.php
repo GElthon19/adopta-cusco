@@ -3,7 +3,6 @@
 @section('title', 'Animales')
 
 @push('css')
-<link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
 <style>
     .btn-add-animal {
         display: inline-flex;
