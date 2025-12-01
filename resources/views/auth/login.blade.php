@@ -121,6 +121,7 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
     </style>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>

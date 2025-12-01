@@ -223,12 +223,6 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Script para notificaciones (usuarios autenticados) -->
-    @auth
-    <script src="{{ asset('js/notifications.js') }}"></script>
-    <script src="{{ asset('js/notifications-dropdown.js') }}"></script>
-    @endauth
-    
     <!-- DEBUG: Asegurar que dropdowns funcionen -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
