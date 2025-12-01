@@ -9,6 +9,12 @@ class AnimalesSeeder extends Seeder
 {
     public function run()
     {
+        // Solo ejecutar si no hay animales en la BD
+        if (DB::table('animales')->count() > 0) {
+            $this->command->info('Los animales ya existen en la base de datos. Saltando seeder...');
+            return;
+        }
+
         $animales = [
             [
                 'nombre' => 'Luna',
