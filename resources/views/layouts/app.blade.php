@@ -37,8 +37,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarContent">
-                <ul class="navbar-nav ms-auto align-items-center">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+                <ul class="navbar-nav align-items-center">
                     @auth
                         @if(Auth::user()->isAdmin())
                             <!-- NAVBAR ADMIN -->
