@@ -231,6 +231,21 @@
     <!-- DEBUG: Asegurar que dropdowns funcionen -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // FORZAR QUE EL NAVBAR SE MUESTRE EN PANTALLAS GRANDES
+        const navbarCollapse = document.getElementById('navbarContent');
+        if (window.innerWidth >= 992) {
+            navbarCollapse.classList.add('show');
+        }
+        
+        // Mantener el navbar visible cuando se redimensiona la ventana
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 992) {
+                navbarCollapse.classList.add('show');
+            } else {
+                navbarCollapse.classList.remove('show');
+            }
+        });
+        
         // Verificar que Bootstrap está cargado
         if (typeof bootstrap === 'undefined') {
             console.error('Bootstrap JS no está cargado!');
